@@ -6,7 +6,7 @@
 
 
     if(isNaN(numbType)){ //validação 
-        alert("Precisa ser um número")
+        alert("ERRO! Precisa ser um número")
     }
 
     //Exibir valor obtido 
@@ -34,12 +34,13 @@ function percentage(numbType){
     } else if (numbType > 700 && numbType <= 1500){
         porcent = 0.1
 
-    } else if (numbType > 1500){
+    } else {
         porcent = 0.05
     }
 
     let aumentPorcent = porcent * 100
    
+
 
     let resultPorcent = document.getElementById('salary3')
     resultPorcent.innerHTML = `Percentual de aumento aplicado: <strong> ${aumentPorcent}%  ` 
@@ -50,13 +51,10 @@ function percentage(numbType){
  // valor do aumento
  function valueAument(numbType, aumentPorcent){
 
-    let valueAument = numbType * aumentPorcent
-
-    let value = Math.floor(valueAument/ 100)
-
+    let valueAument = (aumentPorcent/100) * numbType
 
     let result = document.getElementById('salary4')
-    result.innerHTML = `Valor do Aumento:<strong>  R$ ${value}`
+    result.innerHTML = `Valor do Aumento:<strong>  R$ ${valueAument}`
 
     newSalary(valueAument, numbType)
  }
@@ -66,10 +64,8 @@ function percentage(numbType){
 
     let newSalary = numbType + valueAument
 
-    let newS = Math.floor(newSalary/10)
-
     let resultNewSalary = document.getElementById('salary5')
-    resultNewSalary.innerHTML = `Novo salário, após o Aumento: <strong> R$ ${newS}`
+    resultNewSalary.innerHTML = `Novo salário, após o Aumento: <strong> R$ ${newSalary}`
 
 
  }
